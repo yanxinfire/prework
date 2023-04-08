@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: api-server
-        image: {{ include "security.operator.image" . }}
+        image: {{ include "api-server.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         resources:
 {{ toYaml .Values.resources | trim | indent 10 }}
@@ -24,3 +24,4 @@ spec:
       - name: app-config
         secret:
           secretName: {{ .Release.Name }}
+          optional: true
