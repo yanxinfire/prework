@@ -19,7 +19,7 @@ spec:
 {{ toYaml .Values.resources | trim | indent 10 }}
         volumeMounts:
         - name: app-config
-          mountPath: /app
+          mountPath: /app/config
       volumes:
       - name: app-config
         secret:

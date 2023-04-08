@@ -7,7 +7,7 @@ import db
 app = Flask(__name__)
 
 configPath = os.path.join(
-    os.path.dirname(os.path.realpath(__file__)), "config.yaml")
+    os.path.dirname(os.path.realpath(__file__)), "config/config.yaml")
 with open(configPath) as f:
     cfg = yaml.safe_load(f)
 
