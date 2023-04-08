@@ -1,0 +1,32 @@
+image:
+  registry: docker.io
+  repository: yanxinfire
+  name: api-server
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+  # Specify the nodePort value for the NodePort service types.
+#  nodePort: 30080
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  requests:
+    cpu: 100m
+    memory: 100Mi
+
+server:
+  server_host: 0.0.0.0
+  server_port: 8080
+
+mysqldb:
+  mysql_host: mysql.default.svc
+  mysql_password: oracle
+  mysql_user: nick
+  mysql_port: 30036
+  mysql_database: prework
