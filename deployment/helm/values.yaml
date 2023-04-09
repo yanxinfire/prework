@@ -30,3 +30,9 @@ mysqldb:
   mysql_user: nick
   mysql_port: 3306
   mysql_database: prework
+
+subnginx:
+  enabled: true
+
+submysql:
+  enabled: false

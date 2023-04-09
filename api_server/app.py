@@ -11,7 +11,7 @@ configPath = os.path.join(
 with open(configPath) as f:
     cfg = yaml.safe_load(f)
 
-root_api = "/api/v1"
+root_api = "/api/v1/prework"
 mydb = db.MyDB(cfg)
 
 
