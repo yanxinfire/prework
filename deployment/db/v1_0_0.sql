@@ -1,6 +1,8 @@
+CREATE DATABASE IF NOT EXISTS prework;
+
 use prework;
 
-CREATE TABLE users
+CREATE TABLE IF NOT EXISTS users
 (
     id         int          NOT NULL AUTO_INCREMENT,
     last_name  varchar(255) NOT NULL,
