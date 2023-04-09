@@ -18,9 +18,10 @@ def list_user(args):
     if args.offset >= 0:
         url += f"&offset={args.offset}"
     res = requests.get(url, headers=headers)
-    for u in res.json():
-        output += '|{:<4d}|{:<12s}|{:<12s}|{:<3d}|\n'. \
-            format(u["id"], u["first_name"], u["last_name"], u["age"])
+    if res.json() is not None:
+        for u in res.json():
+            output += '|{:<4d}|{:<12s}|{:<12s}|{:<3d}|\n'. \
+                format(u["id"], u["first_name"], u["last_name"], u["age"])
     return output
 
 
@@ -28,6 +29,8 @@ def get_user(args):
     url = f"http://{args.host}:{args.port}{root_api}/user/{args.user_id}"
     res = requests.get(url, headers=headers)
     u = res.json()
+    if u is None:
+        return "the user can't be found"
     return '{:<12s}: {}\n{:<12s}: {}\n{:<12s}: {}\n{:<12s}: {}\n'. \
         format("id", u["id"], "first_name", u["first_name"],
                "last_name", u["last_name"], "age", u["age"])
